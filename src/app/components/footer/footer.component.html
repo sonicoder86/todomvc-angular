@@ -1,21 +1,11 @@
 <footer class="footer">
-  <span class="todo-count"><strong>2</strong><span> items left</span></span>
+  <span class="todo-count"><strong>{{ itemsLeft() }}</strong><span> {{ itemText() }} left</span></span>
   <ul class="filters">
-    <li>
-      <a href="#">
-        All
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        Active
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        Completed
+    <li *ngFor="let item of filterTitles | keyvalue:keepOriginalOrder">
+      <a href="#" (click)="handleFilterSelect(item.key)">
+        {{ item.value }}
       </a>
     </li>
   </ul>
-  <button class="clear-completed" >Clear completed</button>
+  <button class="clear-completed" *ngIf="!!completedCount()" (click)="handleClearCompleted()">Clear completed</button>
 </footer>

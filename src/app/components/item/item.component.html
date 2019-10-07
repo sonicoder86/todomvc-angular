@@ -1,16 +1,22 @@
-<li>
+<li [ngClass]="{ completed: todo.completed, editing: editing }" >
   <div class="view">
     <input
       class="toggle"
       type="checkbox"
+      [checked]="todo.completed"
+      (change)="handleCompleted()"
     />
-    <label >First</label>
+    <label (dblclick)="handleEdit()">{{ todo.name }}</label>
     <button
       class="destroy"
+      (click)="handleRemove()"
     ></button>
   </div>
-  <!--<input-->
-    <!--class="edit"-->
-    <!--autofocus-->
-  <!--/>-->
+  <input
+    class="edit"
+    *ngIf="editing"
+    [(ngModel)]="name"
+    (blur)="handleBlur()"
+    autofocus
+  />
 </li>

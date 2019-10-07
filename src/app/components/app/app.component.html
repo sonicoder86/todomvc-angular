@@ -1,8 +1,8 @@
 <div id="app">
   <section class="todoapp">
     <app-header></app-header>
-    <app-list></app-list>
-    <app-footer></app-footer>
+    <app-list [todos]="todos$ | async"></app-list>
+    <app-footer [todos]="todos$ | async"></app-footer>
   </section>
   <footer class="info">
     <p>Double-click to edit a todo</p>
