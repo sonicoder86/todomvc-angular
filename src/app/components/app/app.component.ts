@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { RootState } from '../../reducers/todo.reducer';
-import { TodoActionService } from '../../services/todo-action.service';
+import { Store } from '@ngrx/store';
 import { TodoStorageService } from '../../services/todo-storage.service';
 import { Observable } from 'rxjs';
 import { TodoInterface } from '../../interfaces/todo.interface';
+import { TodoStateInterface } from '../../interfaces/todo-state.interface';
+import { onLoad } from '../../state/actions/todo.actions';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +13,14 @@ import { TodoInterface } from '../../interfaces/todo.interface';
 export class AppComponent implements OnInit  {
   todos$: Observable<TodoInterface[]>;
 
-  constructor(private store: Store<RootState>, private action: TodoActionService, private storage: TodoStorageService) {
-    this.todos$ = this.store.pipe(
-      select('todos')
-    );
+  constructor(private store: Store<TodoStateInterface>, private storage: TodoStorageService) {
+    this.todos$ = this.store.select('todos');
   }
 
   ngOnInit() {
-    this.action.onLoad(
+    this.store.dispatch(onLoad(
       this.storage.loadTodos()
-    );
+    ));
+    this.todos$.subscribe(todos => this.storage.storeTodos(todos));
   }
 }

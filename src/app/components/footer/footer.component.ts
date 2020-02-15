@@ -1,8 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { TodoInterface } from '../../interfaces/todo.interface';
-import { selectCompleted, selectNotCompleted } from '../../selectors/Todo';
-import { TodoActionService } from '../../services/todo-action.service';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectCompletedCount, selectItemsLeft } from '../../state/selectors/Todo';
 import { FILTERS } from '../../constants/Filters';
+import { TodoStateInterface } from '../../interfaces/todo-state.interface';
+import { onClearCompleted } from '../../state/actions/todo.actions';
+import { onFilterSelect } from '../../state/actions/filter.actions';
 
 @Component({
   selector: 'app-footer',
@@ -10,36 +13,34 @@ import { FILTERS } from '../../constants/Filters';
 })
 export class FooterComponent {
 
-  @Input()
-  todos: TodoInterface[] = [];
+  filterTitles = [
+    { key: FILTERS.all, value: 'All' },
+    { key: FILTERS.active, value: 'Active' },
+    { key: FILTERS.completed, value: 'Completed' }
+  ];
 
-  filterTitles = {
-    [FILTERS.all]: 'All',
-    [FILTERS.active]: 'Active',
-    [FILTERS.completed]: 'Completed'
-  };
+  itemsLeft$: Observable<number>;
 
-  constructor(private action: TodoActionService) {}
+  completedCount$: Observable<number>;
 
-  public itemsLeft() {
-    return selectNotCompleted(this.todos).length;
+  itemText$: Observable<string>;
+
+  filter$: Observable<string>;
+
+  constructor(private store: Store<TodoStateInterface>) {
+    this.itemsLeft$ = store.select(selectItemsLeft);
+    this.completedCount$ = store.select(selectCompletedCount);
+    this.itemText$ = store.select(
+      (state: TodoStateInterface) => selectItemsLeft(state) === 1 ? 'item' : 'items'
+    );
+    this.filter$ = store.select('filter');
   }
 
-  public completedCount() {
-    return selectCompleted(this.todos).length;
-  }
-
-  public itemText() {
-    return this.itemsLeft() === 1 ? 'item' : 'items';
-  }
-
-  public handleClearCompleted() {
-    this.action.onClearCompleted();
+  handleClearCompleted() {
+    this.store.dispatch(onClearCompleted());
   }
 
   handleFilterSelect(filter: string) {
-    console.log(filter);
+    this.store.dispatch(onFilterSelect(filter));
   }
-
-  public keepOriginalOrder = (a, b) => a.key;
 }

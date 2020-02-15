@@ -9,9 +9,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/item/item.component';
-// import { reducer } from './buzi';
-// import { reducer } from './reducers';
-import { todoReducer } from './reducers/todo.reducer';
+import { CopyRightComponent } from './components/copy-right/copy-right.component';
+import { todoReducer } from './state/reducers/todo.reducer';
+import { filterReducer } from './state/reducers/filter.reducer';
 
 @NgModule({
   declarations: [
@@ -19,12 +19,16 @@ import { todoReducer } from './reducers/todo.reducer';
     HeaderComponent,
     FooterComponent,
     ListComponent,
-    ItemComponent
+    ItemComponent,
+    CopyRightComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot({
+      todos: todoReducer,
+      filter: filterReducer
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false

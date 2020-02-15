@@ -1,32 +1,34 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { TodoInterface } from '../../interfaces/todo.interface';
-import { TodoActionService } from '../../services/todo-action.service';
-import { TodoUpdateInterface } from '../../interfaces/todo-update.interface';
+import { TodoStateInterface } from '../../interfaces/todo-state.interface';
+import { selectAllCompleted, selectVisible } from '../../state/selectors/Todo';
+import { onCompleteAll, onRemove, onUpdate } from '../../state/actions/todo.actions';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html'
 })
 export class ListComponent {
+  visibleTodos$: Observable<TodoInterface[]>;
 
-  @Input()
-  todos: TodoInterface[] = [];
+  allCompleted$: Observable<boolean>;
 
-  constructor(private action: TodoActionService) {}
-
-  public handleRemove(id: string) {
-    this.action.onRemove(id);
+  constructor(private store: Store<TodoStateInterface>) {
+    this.visibleTodos$ = store.select(selectVisible);
+    this.allCompleted$ = store.select(selectAllCompleted);
   }
 
-  public handleUpdate(event: TodoUpdateInterface) {
-    this.action.onUpdate(event.id, event.values);
+  public handleRemove(id: string) {
+    this.store.dispatch(onRemove(id));
+  }
+
+  public handleUpdate(values: TodoInterface) {
+    this.store.dispatch(onUpdate(values));
   }
 
   public handleCompleteAll() {
-    this.action.onCompleteAll();
-  }
-
-  public areAllCompleted() {
-    return this.todos.length && this.todos.every(todo => todo.completed);
+    this.store.dispatch(onCompleteAll());
   }
 }

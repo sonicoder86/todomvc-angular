@@ -1,11 +1,15 @@
 <footer class="footer">
-  <span class="todo-count"><strong>{{ itemsLeft() }}</strong><span> {{ itemText() }} left</span></span>
+  <span class="todo-count"><strong>{{ itemsLeft$ | async }}</strong><span> {{ itemText$ | async }} left</span></span>
   <ul class="filters">
-    <li *ngFor="let item of filterTitles | keyvalue:keepOriginalOrder">
-      <a href="#" (click)="handleFilterSelect(item.key)">
+    <li *ngFor="let item of filterTitles">
+      <a
+        href="#"
+        [class.selected]="item.key === (filter$ | async)"
+        (click)="handleFilterSelect(item.key)"
+      >
         {{ item.value }}
       </a>
     </li>
   </ul>
-  <button class="clear-completed" *ngIf="!!completedCount()" (click)="handleClearCompleted()">Clear completed</button>
+  <button *ngIf="!!(completedCount$ | async)" class="clear-completed" (click)="handleClearCompleted()">Clear completed</button>
 </footer>

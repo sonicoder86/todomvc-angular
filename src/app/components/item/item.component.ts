@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { TodoInterface } from '../../interfaces/todo.interface';
-import { TodoUpdateInterface } from '../../interfaces/todo-update.interface';
 
 @Component({
   selector: 'app-item',
@@ -19,7 +18,7 @@ export class ItemComponent implements OnChanges {
   remove = new EventEmitter<string>();
 
   @Output()
-  update = new EventEmitter<TodoUpdateInterface>();
+  update = new EventEmitter<TodoInterface>();
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.todo) {
@@ -32,7 +31,7 @@ export class ItemComponent implements OnChanges {
   }
 
   handleBlur() {
-    this.update.emit({ id: this.todo.id, values: { name: this.name } });
+    this.update.emit({ id: this.todo.id, name: this.name });
     this.editing = false;
   }
 
@@ -41,6 +40,6 @@ export class ItemComponent implements OnChanges {
   }
 
   handleCompleted() {
-    this.update.emit({ id: this.todo.id, values: { completed: !this.todo.completed } });
+    this.update.emit({ id: this.todo.id, completed: !this.todo.completed });
   }
 }

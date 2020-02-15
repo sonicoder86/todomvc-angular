@@ -4,7 +4,7 @@
     class="new-todo"
     placeholder="What needs to be done?"
     [value]="name"
-    (keyup)="handleChange($event)"
-    autofocus
+    (input)="handleChange($event)"
+    (keyup)="handleSubmit($event)"
   />
 </header>

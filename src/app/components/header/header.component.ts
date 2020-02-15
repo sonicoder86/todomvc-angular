@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { TodoActionService } from '../../services/todo-action.service';
+import { Store } from '@ngrx/store';
+import { TodoStateInterface } from '../../interfaces/todo-state.interface';
+import { onCreate } from '../../state/actions/todo.actions';
 
-const ENTER_KEY = 13;
+const ENTER_KEY = 'Enter';
 
 @Component({
   selector: 'app-header',
@@ -11,15 +13,18 @@ export class HeaderComponent {
 
   name = '';
 
-  constructor(private action: TodoActionService) {}
+  constructor(private store: Store<TodoStateInterface>) {}
 
   handleChange(event: KeyboardEvent) {
-    if (event.which === ENTER_KEY) {
-      this.action.onCreate(this.name);
-      // this.onCreate(this.name);
-      this.name = '';
-    } else {
-      this.name = (event.target as HTMLInputElement).value;
+    this.name = (event.target as HTMLInputElement).value;
+  }
+
+  handleSubmit(event: KeyboardEvent) {
+    if (event.key !== ENTER_KEY) {
+      return;
     }
+
+    this.store.dispatch(onCreate(this.name));
+    this.name = '';
   }
 }

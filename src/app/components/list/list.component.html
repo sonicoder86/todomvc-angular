@@ -1,8 +1,13 @@
 <section class="main">
-  <input id="toggle-all" class="toggle-all" type="checkbox" readonly [checked]="areAllCompleted()" />
+  <input id="toggle-all" class="toggle-all" type="checkbox" readonly [checked]="allCompleted$ | async" />
   <label htmlFor="toggle-all" (click)="handleCompleteAll()"></label>
 
   <ul class="todo-list">
-    <app-item *ngFor="let todo of todos" [todo]="todo" (remove)="handleRemove($event)" (update)="handleUpdate($event)"></app-item>
+    <app-item
+      *ngFor="let todo of (visibleTodos$ | async)"
+      [todo]="todo"
+      (remove)="handleRemove($event)"
+      (update)="handleUpdate($event)"
+    ></app-item>
   </ul>
 </section>
