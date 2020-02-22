@@ -10,8 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/item/item.component';
 import { CopyRightComponent } from './components/copy-right/copy-right.component';
-import { todoReducer } from './state/reducers/todo.reducer';
-import { filterReducer } from './state/reducers/filter.reducer';
+import { createRootReducerMap } from './state/reducers';
 
 @NgModule({
   declarations: [
@@ -25,10 +24,7 @@ import { filterReducer } from './state/reducers/filter.reducer';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({
-      todos: todoReducer,
-      filter: filterReducer
-    }),
+    StoreModule.forRoot(createRootReducerMap()),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false
