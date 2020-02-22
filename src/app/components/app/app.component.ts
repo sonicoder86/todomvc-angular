@@ -4,7 +4,7 @@ import { TodoLocalService } from '../../services/todo-local.service';
 import { Observable } from 'rxjs';
 import { TodoInterface } from '../../interfaces/todo.interface';
 import { TodoStateInterface } from '../../interfaces/todo-state.interface';
-import { onLoad } from '../../state/actions/todo.actions';
+import { onLoad } from '../../store/actions/todo.actions';
 
 @Component({
   selector: 'app-root',

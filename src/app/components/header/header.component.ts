@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TodoStateInterface } from '../../interfaces/todo-state.interface';
-import { onCreate } from '../../state/actions/todo.actions';
+import { onCreate } from '../../store/actions/todo.actions';
 
 const ENTER_KEY = 'Enter';
 

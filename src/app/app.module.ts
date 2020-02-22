@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/item/item.component';
 import { CopyRightComponent } from './components/copy-right/copy-right.component';
-import { createRootReducerMap } from './state/reducers';
+import { storeFactory } from './store/factory';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { createRootReducerMap } from './state/reducers';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot(createRootReducerMap()),
+    StoreModule.forRoot(storeFactory()),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false
