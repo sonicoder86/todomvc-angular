@@ -1,23 +1,15 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, element, protractor } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('New todo', () => {
+  it('should create new todo', () => {
+    browser.get(browser.baseUrl);
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
+    expect(element(by.css('h1')).getText()).toEqual('todos');
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('todoapp-angular app is running!');
-  });
+    const newTodo = element(by.css('.new-todo'));
+    newTodo.sendKeys('Demo');
+    newTodo.sendKeys(protractor.Key.ENTER);
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+    expect(element(by.css('.main .todo-list .view')).getText()).toEqual('Demo');
   });
 });
