@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TodoLocalService } from '../../services/todo-local.service';
 import { Observable } from 'rxjs';
-import { TodoInterface } from '../../interfaces/todo.interface';
-import { TodoStateInterface } from '../../interfaces/todo-state.interface';
-import { onLoad } from '../../store/actions/todo.actions';
+import { TodoInterface } from '../../services/todo.interface';
+import { TodoStateInterface } from '../../store/todo-state.interface';
+import { onLoad } from '../../store/actions/todo.action';
 
 @Component({
   selector: 'app-root',

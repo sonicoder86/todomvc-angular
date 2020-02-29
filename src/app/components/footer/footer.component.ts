@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectCompletedCount, selectItemsLeft } from '../../store/selectors/Todo';
-import { FILTERS } from '../../constants/Filters';
-import { TodoStateInterface } from '../../interfaces/todo-state.interface';
-import { onClearCompleted } from '../../store/actions/todo.actions';
-import { onFilterSelect } from '../../store/actions/filter.actions';
+import { selectCompletedCount, selectItemsLeft } from '../../store/selectors/todo.selector';
+import { FILTERS } from '../../constants/filter';
+import { TodoStateInterface } from '../../store/todo-state.interface';
+import { onClearCompleted } from '../../store/actions/todo.action';
+import { onFilterSelect } from '../../store/actions/filter.action';
 
 @Component({
   selector: 'app-footer',

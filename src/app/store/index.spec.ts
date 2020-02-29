@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { cold } from 'jasmine-marbles';
-import { storeFactory } from './factory';
-import { TodoStateInterface } from '../interfaces/todo-state.interface';
-import { onCreate } from './actions/todo.actions';
+import { createStore } from './index';
+import { TodoStateInterface } from './todo-state.interface';
+import { onCreate } from './actions/todo.action';
 
-describe('storeFactory', () => {
+describe('createStore', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        StoreModule.forRoot(storeFactory())
+        StoreModule.forRoot(createStore())
       ]
     });
   });

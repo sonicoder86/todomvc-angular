@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { FILTERS } from '../../constants/Filters';
-import { onFilterSelect } from '../actions/filter.actions';
+import { FILTERS } from '../../constants/filter';
+import { onFilterSelect } from '../actions/filter.action';
 
 export const createFilterReducer = (initialState: string = FILTERS.all) =>
   createReducer(

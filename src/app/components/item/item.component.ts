@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { TodoInterface } from '../../interfaces/todo.interface';
+import { TodoInterface } from '../../services/todo.interface';
 
 @Component({
   selector: 'app-item',

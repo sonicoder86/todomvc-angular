@@ -1,5 +1,5 @@
 import { createTodoReducer } from './todo.reducer';
-import { onCreate, onLoad, onRemove, onUpdate } from '../actions/todo.actions';
+import { onCreate, onLoad, onRemove, onUpdate } from '../actions/todo.action';
 
 describe('todosReducer', () => {
   it('should set list of items on load', () => {

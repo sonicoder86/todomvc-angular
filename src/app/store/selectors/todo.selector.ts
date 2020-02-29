@@ -1,6 +1,6 @@
-import { FILTERS } from '../../constants/Filters';
-import { TodoInterface } from '../../interfaces/todo.interface';
-import { TodoStateInterface } from '../../interfaces/todo-state.interface';
+import { FILTERS } from '../../constants/filter';
+import { TodoInterface } from '../../services/todo.interface';
+import { TodoStateInterface } from '../todo-state.interface';
 import { createSelector } from '@ngrx/store';
 
 export function selectVisible({ todos, filter }: TodoStateInterface) {

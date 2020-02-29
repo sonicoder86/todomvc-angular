@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/item/item.component';
 import { CopyRightComponent } from './components/copy-right/copy-right.component';
-import { storeFactory } from './store/factory';
+import { createStore } from './store';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { storeFactory } from './store/factory';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot(storeFactory()),
+    StoreModule.forRoot(createStore()),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false

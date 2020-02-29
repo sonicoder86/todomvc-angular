@@ -1,8 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import uuid from 'uuid';
-import { TodoInterface } from '../../interfaces/todo.interface';
-import { onClearCompleted, onCompleteAll, onCreate, onLoad, onRemove, onUpdate } from '../actions/todo.actions';
-import { selectCompleted, selectNotCompleted } from '../selectors/Todo';
+import { TodoInterface } from '../../services/todo.interface';
+import { onClearCompleted, onCompleteAll, onCreate, onLoad, onRemove, onUpdate } from '../actions/todo.action';
+import { selectCompleted, selectNotCompleted } from '../selectors/todo.selector';
 
 export const createTodoReducer = (initialState: TodoInterface[] = []) =>
   createReducer(

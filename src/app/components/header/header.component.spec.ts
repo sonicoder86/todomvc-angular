@@ -3,14 +3,14 @@ import { Store, StoreModule } from '@ngrx/store';
 import { By } from '@angular/platform-browser';
 import { cold } from 'jasmine-marbles';
 import { HeaderComponent } from './header.component';
-import { storeFactory } from '../../store/factory';
+import { createStore } from '../../store/index';
 
 describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HeaderComponent],
       imports: [
-        StoreModule.forRoot(storeFactory())
+        StoreModule.forRoot(createStore())
       ]
     })
     .compileComponents();

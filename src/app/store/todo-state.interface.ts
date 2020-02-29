@@ -1,4 +1,4 @@
-import { TodoInterface } from './todo.interface';
+import { TodoInterface } from '../services/todo.interface';
 
 export interface TodoStateInterface {
   todos: TodoInterface[],

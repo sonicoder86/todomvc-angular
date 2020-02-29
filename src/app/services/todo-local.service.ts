@@ -1,4 +1,4 @@
-import { TodoInterface } from '../interfaces/todo.interface';
+import { TodoInterface } from './todo.interface';
 
 const LOCAL_STORAGE_KEY = 'todoapp_todos';
 

@@ -1,6 +1,6 @@
 import { createAction } from '@ngrx/store';
-import { ACTION_TYPES } from '../../constants/ActionTypes';
-import { TodoInterface } from '../../interfaces/todo.interface';
+import { ACTION_TYPES } from '../../constants/action-type';
+import { TodoInterface } from '../../services/todo.interface';
 
 export const onLoad = createAction(
   ACTION_TYPES.load,
