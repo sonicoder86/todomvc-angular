@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { TodoInterface } from '../../services/todo.interface';
 import { onClearCompleted, onCompleteAll, onCreate, onLoad, onRemove, onUpdate } from '../actions/todo.action';
 import { selectCompleted, selectNotCompleted } from '../selectors/todo.selector';
@@ -11,7 +11,7 @@ export const createTodoReducer = (initialState: TodoInterface[] = []) =>
       return todos;
     }),
     on(onCreate, (state: TodoInterface[], { name }) => {
-      return [...state, { id: uuid.v4(), name, completed: false }];
+      return [...state, { id: uuidv4(), name, completed: false }];
     }),
     on(onUpdate, (state: TodoInterface[], { values }) => {
       return state.map(
