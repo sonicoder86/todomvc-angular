@@ -1,4 +1,4 @@
-# TodoApp built with Angular and NgRx
+# TodoMVC built with Angular and NgRx
 
 [![Build Status](https://travis-ci.com/blacksonic/todomvc-angular.svg?branch=master)](https://travis-ci.com/blacksonic/todomvc-angular)
 

@@ -1,6 +1,10 @@
 {
-  "name": "todoapp-angular",
-  "version": "0.0.0",
+  "name": "todomvc-angular",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blacksonic/todomvc-angular.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
