@@ -6,7 +6,7 @@ The well-known TodoMVC built with Angular and NgRx in a structured and testable 
 
 ![TodoMVC Angular](./images/screenshot.png "TodoMVC Angular")
 
-[Edit and try it out online](https://codesandbox.io/s/github/blacksonic/todoapp-angular)
+[Edit and try it out online](https://codesandbox.io/s/github/blacksonic/todomvc-angular)
 
 ## Concepts and tools covered
 
@@ -20,3 +20,14 @@ The well-known TodoMVC built with Angular and NgRx in a structured and testable 
 
 Application is compatible with [Augury devtools](https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd?hl=en) 
 and [Redux devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+
+## Series
+
+This implementation is part of a series where the same application was implemented with the same architecture.
+
+- [Vue](https://github.com/blacksonic/todomvc-vue)
+- [Vue Composition API](https://github.com/blacksonic/todomvc-vue-composition-api)
+- [Angular](https://github.com/blacksonic/todomvc-angular)
+- [React](https://github.com/blacksonic/todomvc-react)
+- [React Hooks](https://github.com/blacksonic/todomvc-react-hooks)
+- [Svelte](https://github.com/blacksonic/todomvc-svelte)
