@@ -8,9 +8,7 @@ import { onCreate } from './actions/todo.action';
 describe('createStore', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        StoreModule.forRoot(createStore())
-      ]
+      imports: [StoreModule.forRoot(createStore())]
     });
   });
 
@@ -19,7 +17,7 @@ describe('createStore', () => {
 
     store.dispatch(onCreate('Demo'));
 
-    const expectedTodos = cold('a', { a: [{ id: jasmine.any(String),  name: 'Demo', completed: false }] });
+    const expectedTodos = cold('a', { a: [{ id: jasmine.any(String), name: 'Demo', completed: false }] });
     expect(store.select('todos')).toBeObservable(expectedTodos);
   });
 });

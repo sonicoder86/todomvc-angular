@@ -10,7 +10,7 @@ import { onLoad } from '../../store/actions/todo.action';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit {
   todos$: Observable<TodoInterface[]>;
 
   constructor(private store: Store<TodoStateInterface>) {
@@ -18,9 +18,7 @@ export class AppComponent implements OnInit  {
   }
 
   ngOnInit() {
-    this.store.dispatch(onLoad(
-      TodoLocalService.loadTodos()
-    ));
+    this.store.dispatch(onLoad(TodoLocalService.loadTodos()));
     this.todos$.subscribe(todos => TodoLocalService.storeTodos(todos));
   }
 }

@@ -6,7 +6,6 @@ import { TodoInterface } from '../../services/todo.interface';
   templateUrl: './item.component.html'
 })
 export class ItemComponent implements OnChanges {
-
   editing = false;
 
   name = '';

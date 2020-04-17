@@ -9,11 +9,8 @@ describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [
-        StoreModule.forRoot(createStore())
-      ]
-    })
-    .compileComponents();
+      imports: [StoreModule.forRoot(createStore())]
+    }).compileComponents();
   }));
 
   it('should add new element to store', () => {
@@ -24,7 +21,7 @@ describe('HeaderComponent', () => {
     input.triggerEventHandler('input', { target: input.nativeElement });
     input.triggerEventHandler('keyup', { key: 'Enter' });
 
-    const expectedTodos = cold('a', { a: [{ id: jasmine.any(String),  name: 'Demo', completed: false }] });
+    const expectedTodos = cold('a', { a: [{ id: jasmine.any(String), name: 'Demo', completed: false }] });
     const store = TestBed.inject(Store);
     expect(store.select('todos')).toBeObservable(expectedTodos);
   });

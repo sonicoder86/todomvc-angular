@@ -12,7 +12,6 @@ import { onFilterSelect } from '../../store/actions/filter.action';
   templateUrl: './footer.component.html'
 })
 export class FooterComponent {
-
   filterTitles = [
     { key: FILTERS.all, value: 'All' },
     { key: FILTERS.active, value: 'Active' },
@@ -30,9 +29,7 @@ export class FooterComponent {
   constructor(private store: Store<TodoStateInterface>) {
     this.itemsLeft$ = store.select(selectItemsLeft);
     this.completedCount$ = store.select(selectCompletedCount);
-    this.itemText$ = store.select(
-      (state: TodoStateInterface) => selectItemsLeft(state) === 1 ? 'item' : 'items'
-    );
+    this.itemText$ = store.select((state: TodoStateInterface) => (selectItemsLeft(state) === 1 ? 'item' : 'items'));
     this.filter$ = store.select('filter');
   }
 

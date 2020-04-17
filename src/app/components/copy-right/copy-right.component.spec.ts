@@ -5,8 +5,7 @@ describe('CopyRightComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CopyRightComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   it('should render component', () => {

@@ -6,8 +6,7 @@ describe('ItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ItemComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   it('should display todo item', () => {
@@ -38,7 +37,7 @@ describe('ItemComponent', () => {
 
     let todoId = '';
     const destroy = fixture.debugElement.query(By.css('.destroy'));
-    fixture.componentInstance.remove.subscribe(id => todoId = id);
+    fixture.componentInstance.remove.subscribe(id => (todoId = id));
     destroy.triggerEventHandler('click', null);
 
     expect(todoId).toEqual('e2bb892a-844a-47fb-a2b3-47f491af9d88');

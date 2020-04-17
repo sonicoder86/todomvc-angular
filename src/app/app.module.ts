@@ -13,14 +13,7 @@ import { CopyRightComponent } from './components/copy-right/copy-right.component
 import { createStore } from './store';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ListComponent,
-    ItemComponent,
-    CopyRightComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, ListComponent, ItemComponent, CopyRightComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -28,9 +21,9 @@ import { createStore } from './store';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false
-    }),
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

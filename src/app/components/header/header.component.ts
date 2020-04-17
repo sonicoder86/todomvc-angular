@@ -10,7 +10,6 @@ const ENTER_KEY = 'Enter';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-
   name = '';
 
   constructor(private store: Store<TodoStateInterface>) {}
