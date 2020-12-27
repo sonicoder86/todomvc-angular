@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { By } from '@angular/platform-browser';
 import { cold } from 'jasmine-marbles';
@@ -6,7 +6,7 @@ import { HeaderComponent } from './header.component';
 import { createStore } from '../../store/index';
 
 describe('HeaderComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [HeaderComponent],
       imports: [StoreModule.forRoot(createStore())]

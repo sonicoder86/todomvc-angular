@@ -1,8 +1,8 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
 import { CopyRightComponent } from './copy-right.component';
 
 describe('CopyRightComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CopyRightComponent]
     }).compileComponents();
