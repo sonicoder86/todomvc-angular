@@ -13,7 +13,7 @@
     "test:unit": "ng test --no-watch",
     "test:e2e": "ng e2e",
     "lint": "ng lint",
-    "update": "ng update @angular/core@10 @angular/cli@10"
+    "update": "ng update @angular/core@11 @angular/cli@11"
   },
   "private": true,
   "dependencies": {
