@@ -12,7 +12,6 @@
     "test": "npm run test:unit",
     "test:unit": "ng test --no-watch",
     "test:e2e": "protractor e2e/protractor.conf.js",
-    "webdriver-update": "webdriver-manager update",
     "lint": "ng lint"
   },
   "dependencies": {
