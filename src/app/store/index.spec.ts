@@ -15,6 +15,15 @@ describe('createStore', () => {
   it('should create a new instance of store', () => {
     const store: Store<TodoStateInterface> = TestBed.inject(Store);
 
+    const expectedTodos = cold('a', { a: [] });
+    const expectedFilter = cold('a', { a: 'all' });
+    expect(store.select('todos')).toBeObservable(expectedTodos);
+    expect(store.select('filter')).toBeObservable(expectedFilter);
+  });
+
+  it('should add new todo', () => {
+    const store: Store<TodoStateInterface> = TestBed.inject(Store);
+
     store.dispatch(onCreate('Demo'));
 
     const expectedTodos = cold('a', { a: [{ id: jasmine.any(String), name: 'Demo', completed: false }] });
