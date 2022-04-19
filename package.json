@@ -6,7 +6,7 @@
     "url": "git+https://github.com/blacksonic/todomvc-angular.git"
   },
   "scripts": {
-    "build": "ng build --configuration production=true",
+    "build": "ng build --configuration=production",
     "format": "prettier --write 'src/**/*.ts'",
     "start": "ng serve",
     "test": "npm run test:unit",
