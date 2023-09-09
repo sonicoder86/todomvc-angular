@@ -5,6 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/blacksonic/todomvc-angular.git"
   },
+  "main": "src/main.ts",
   "scripts": {
     "build": "ng build --configuration=production",
     "format": "prettier --write 'src/**/*.ts'",
