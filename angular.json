@@ -123,9 +123,10 @@
       }
     }
   },
-  "defaultProject": "todomvc-angular",
   "cli": {
     "analytics": "4cba7528-6cf1-463a-bd7c-4f519041555b",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
